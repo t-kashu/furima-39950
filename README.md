@@ -24,11 +24,11 @@
 | --------------------------- | ---------- | ------------------------------ |
 | item_name                   | string     | null: false                    |
 | item_info                   | text       | null: false                    |
-| item_category_id            | id         | null: false                    |
-| item_sales_status_id        | id         | null: false                    |
-| item_shipping_fee_status_id | id         | null: false                    |
-| item_prefecture_id          | id         | null: false                    |
-| item_scheduled_delivery_id  | id         | null: false                    |
+| item_category_id            | integer    | null: false                    |
+| item_sales_status_id        | integer    | null: false                    |
+| item_shipping_fee_status_id | integer    | null: false                    |
+| item_prefecture_id          | integer    | null: false                    |
+| item_scheduled_delivery_id  | integer    | null: false                    |
 | item_price                  | integer    | null: false                    |
 | user                        | references | null: false, foreign_key: true |
 
@@ -53,7 +53,7 @@
 | Column        | Type   | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | postal_code        | string     | null: false                    |
-| item_prefecture_id | id         | null: false,                   |
+| item_prefecture_id | integer    | null: false,                   |
 | city               | string     | null: false,                   |
 | addresses          | string     | null: false,                   |
 | building           | string     |                                |
@@ -61,4 +61,4 @@
 | order              | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :orders
+- belongs_to :order
