@@ -11,7 +11,6 @@ RSpec.describe Item, type: :model do
         expect(@item).to be_valid
       end
     end
-  
 
     context '新規登録できない場合' do
       it 'ユーザー登録している人でないと出品できない' do

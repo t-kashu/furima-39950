@@ -9,7 +9,7 @@ FactoryBot.define do
     item_shipping_fee_status_id { '2' }
     item_prefecture_id          { '2' }
     item_scheduled_delivery_id  { '2' }
-    item_price                  {Faker::Number.between(from: 300, to: 9_999_999)}
+    item_price                  { Faker::Number.between(from: 300, to: 9_999_999) }
 
     after(:build) do |message|
       message.image.attach(io: File.open('public/images/test_image.png'), filename: 'test_image.png')
