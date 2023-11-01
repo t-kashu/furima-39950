@@ -84,6 +84,12 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Item price must be an integer")
       end
+
+      it '価格に半角数字以外が含まれている場合は出品できない' do
+        @item.item_price = '3５０'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Item price is not a number")
+      end
     end
   end
 end
