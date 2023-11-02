@@ -20,7 +20,7 @@
 
 ## items テーブル
 
-| Column                   | Type       | Options                        |
+| Column                      | Type       | Options                        |
 | --------------------------- | ---------- | ------------------------------ |
 | item_name                   | string     | null: false                    |
 | item_info                   | text       | null: false                    |
