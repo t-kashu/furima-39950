@@ -82,7 +82,7 @@ RSpec.describe Item, type: :model do
       it '価格の範囲が、9,999,999円を超えると出品できない' do
         @item.item_price = '10_000_000'
         @item.valid?
-        expect(@item.errors.full_messages).to include("Item price must be an integer")
+        expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
       end
 
       it '価格に半角数字以外が含まれている場合は出品できない' do
