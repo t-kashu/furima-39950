@@ -21,9 +21,15 @@ RSpec.describe OrderForm, type: :model do
 
     context '配送先が保存できない場合' do
       it '郵便番号が「3桁ハイフン4桁」の半角文字列でなければ保存できない' do
+        @order_form.postal_code = '1112222'
+        @order_form.valid?
+        expect(@order_form.errors.full_messages).to include("Postal code is invalid. Enter it as follows (e.g. 123-4567)")
+      end
+
+      it '郵便番号が空では保存できない' do
         @order_form.postal_code = ''
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include("Postal code can't be blank", "Postal code is invalid. Enter it as follows (e.g. 123-4567)")
+        expect(@order_form.errors.full_messages).to include("Postal code can't be blank")
       end
 
       it '都道府県が空では保存できない' do
@@ -68,6 +74,23 @@ RSpec.describe OrderForm, type: :model do
         expect(@order_form.errors.full_messages).to include('Phone number is invalid')
       end
 
+      it 'item_id が空では保存できない' do
+        @order_form.item_id = ''
+        @order_form.valid?
+        expect(@order_form.errors.full_messages).to include("Item can't be blank")
+      end
+
+      it 'user_id が空で は保存できない'do
+        @order_form.user_id = ''
+        @order_form.valid?
+        expect(@order_form.errors.full_messages).to include("User can't be blank")
+      end
+
+      it "tokenが空では保存できない" do
+        @order_form.token = ''
+        @order_form.valid?
+        expect(@order_form.errors.full_messages).to include("Token can't be blank")
+      end
     end
   end
 end
